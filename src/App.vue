@@ -1,9 +1,8 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppCards from './components/AppCards.vue';
-import AppSingleCard from './components/AppSingleCard.vue';
 import axios from 'axios';
-import {store} from './store';
+import {store} from './store.js';
 
 export default {
   components: {

@@ -2,7 +2,7 @@
 
 export default {
     props: {
-        card: Object,
+        character: Object
     }
     
 }
@@ -10,13 +10,13 @@ export default {
 
 <template>
     <div>
-        <img :src="card.card_images[0].image_url" alt="card.name" />
-        <span>{{ card.name }}</span>
-        <span>{{ card.archetype }}</span>
+        <img :src="character.card_images[0].image_url" alt="character.name" />
+        <span>{{ character.name }}</span>
+        <span>{{ character.archetype }}</span>
     </div>
 </template>
 
 <style lang="scss" scoped>
-// @use '../styles/partials/mixins' as *;
-// @use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
 </style>
