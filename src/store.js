@@ -1,6 +1,7 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
-    url: '',
-    text: '',
+    url: 'https://db.ygoprodeck.com/api/v7/cardinfo.php',
+    cardList: [],
+    loading: true,
 })
