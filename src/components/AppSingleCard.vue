@@ -10,7 +10,7 @@ export default {
 
 <template>
     <div>
-        <img :src="character.card_images[0].image_url" alt="character.name" />
+        <img :src="character.card_images[0].image_url" :alt="character.name" />
         <span>{{ character.name }}</span>
         <span>{{ character.archetype }}</span>
     </div>
