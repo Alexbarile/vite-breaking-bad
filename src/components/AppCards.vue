@@ -123,7 +123,7 @@ export default {
             .container-card{
                 .top-bar{
                     width: 100%;
-                    background-color: black;
+                    background-color: rgb(40, 40, 40);
 
                     h4{
                         font-size: 20px;
