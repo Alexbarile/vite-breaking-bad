@@ -24,12 +24,10 @@ export default {
         setTimeout(() => {
           store.loading = false
         }, 3000)
-        this.loading = false;
       })
     }
   },
 }
-
 </script>
 
 <template>

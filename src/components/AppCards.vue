@@ -15,11 +15,18 @@ export default {
 
 <template>
     <div class="bg-orange">
-        <div class="container height-100vh">
+        <div class="container">
+
+            <!-- caricamento -->
+
             <div v-if="store.loading" class="loading">
-                <h4>Caricando</h4>    
+                <h4>Caricando</h4>
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
             </div>
             <div v-else>
+
+                <!-- select -->
+
                 <div class="select">
                     <select class="form-select w-25" id="floatingSelect" aria-label="Floating label select example">
                         <option selected>Scegli la carta</option>
@@ -28,6 +35,9 @@ export default {
                         <option value="3">Three</option>
                     </select>
                 </div>
+
+                <!-- main card -->
+
                 <div class="container-white">
                     <div class="container-card pt-5">
                         <div class="top-bar p-4 mb-3">
@@ -50,23 +60,56 @@ export default {
     .bg-orange{
         background-color: $orange;
         width: 100%;
-        .height-100vh{
-            height: 100vh;
-        }
 
         // barra di caricamento
         .loading{
-            position: relative;
             width: 100%;
-            height: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             h4{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
                 font-size: 20px;
                 font-weight: 400;
+                margin-right: 20px;
+            }
+            
+            // elemento di caricamento
+            .lds-ring {
+                display: inline-block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+                }
+                .lds-ring div {
+                    box-sizing: border-box;
+                    display: block;
+                    position: absolute;
+                    width: 50px;
+                    height: 50px;
+                    margin: 8px;
+                    border: 5px solid #fff;
+                    border-radius: 50%;
+                    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                    border-color: #fff transparent transparent transparent;
+                }
+                .lds-ring div:nth-child(1) {
+                    animation-delay: -0.45s;
+                }
+                .lds-ring div:nth-child(2) {
+                    animation-delay: -0.3s;
+                }
+                .lds-ring div:nth-child(3) {
+                    animation-delay: -0.15s;
+                }
+                @keyframes lds-ring {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
             }
         }
 
@@ -76,7 +119,6 @@ export default {
         }
 
         // sezione carte
-
         .container-white{
             .container-card{
                 .top-bar{
@@ -88,9 +130,13 @@ export default {
                         margin: 0;
                     } 
                 }
+
+                // disposizione carte
                 .card-list{
+                    height: 100vh;
+                    overflow: scroll;
                     display: flex;
-                    justify-content: center;
+                    flex-wrap: wrap;
                 }
             }
         }
