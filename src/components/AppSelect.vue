@@ -20,7 +20,7 @@ export default {
         <!-- creo l'$emit con il v-model  -->
         
         <select class="form-select w-25" id="floatingSelect" aria-label="Floating label select example" v-model="change" @change="$emit('selection', change)">
-            <option selected>Scegli la carta</option>
+            <option value="" disabled selected>Choose the Cards</option>
             <option v-for="(item, index) in option" :key="index" :value="item.archetype_name">{{item.archetype_name}}</option>
         </select>
     </div>

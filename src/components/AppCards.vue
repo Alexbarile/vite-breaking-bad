@@ -51,7 +51,7 @@ export default {
                 <div class="container-white">
                     <div class="container-card pt-5">
                         <div class="top-bar p-4 mb-3">
-                            <h4 class="text-white">Found 39 cards</h4>
+                            <h4 class="text-white">Found {{ store.cardList.length }} cards</h4>
                         </div>
                         <div class="card-list">
 
@@ -136,7 +136,7 @@ export default {
                     h4{
                         font-size: 20px;
                         margin: 0;
-                    } 
+                    }
                 }
 
                 // disposizione carte
