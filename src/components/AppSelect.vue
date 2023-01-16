@@ -1,9 +1,12 @@
 <script>
-import { store } from '../store';
+
 export default {
+    props: {
+        option: Object,
+    },
     data() {
         return {
-            store,
+            change: "",
         }
     },
 }
@@ -13,14 +16,16 @@ export default {
     <!-- select -->
 
     <div class="select">
-        <select class="form-select w-25" id="floatingSelect" aria-label="Floating label select example">
+    
+        <!-- creo l'$emit con il v-model  -->
+        
+        <select class="form-select w-25" id="floatingSelect" aria-label="Floating label select example" v-model="change" @change="$emit('selection', change)">
             <option selected>Scegli la carta</option>
-            <option value="1">Alien</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option v-for="(item, index) in option" :key="index" :value="item.archetype_name">{{item.archetype_name}}</option>
         </select>
     </div>
 </template>
+
 <style lang="scss" scoped>
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;

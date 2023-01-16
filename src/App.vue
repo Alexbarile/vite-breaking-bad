@@ -25,8 +25,11 @@ export default {
           store.loading = false
         }, 3000)
       })
-    }
-  },
+      axios.get(store.urlArchetype).then((response)=>{
+        store.archetypeList = response.data;
+      })
+    },
+  }
 }
 </script>
 

@@ -1,7 +1,9 @@
 <script>
+import axios from 'axios'; 
 import AppSelect from './AppSelect.vue';
 import AppSingleCard from './AppSingleCard.vue';
 import {store} from '../store.js'
+
 export default {
     components: {
         AppSelect,
@@ -12,6 +14,17 @@ export default {
             store
         }
     },
+    methods: {
+
+        // creo funzione per l'AppSelect
+
+        select_archetype( item ) {
+            axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${item}`).then((response)=>{
+            store.cardList = response.data.data;
+            store.loading = false
+            })
+        }
+    }
 }
 </script>
 
@@ -29,7 +42,9 @@ export default {
 
                 <!-- select -->
 
-                <AppSelect></AppSelect>
+                <!-- richiamo il props dell'AppSelect e il punto di ancoraggio dell'$emit -->
+
+                <AppSelect :option="store.archetypeList" @selection="select_archetype"></AppSelect>
 
                 <!-- main card -->
 
@@ -39,6 +54,9 @@ export default {
                             <h4 class="text-white">Found 39 cards</h4>
                         </div>
                         <div class="card-list">
+
+                            <!-- richiamo props di AppSingleCard -->
+
                             <AppSingleCard v-for="(item, index) in store.cardList" :key="index" :character="item"></AppSingleCard>
                         </div>
                     </div>
