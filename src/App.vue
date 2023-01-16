@@ -33,7 +33,6 @@ export default {
 <template>
   <AppHeader></AppHeader>
   <AppCards></AppCards>
-  
 </template>
 
 <style lang="scss">
