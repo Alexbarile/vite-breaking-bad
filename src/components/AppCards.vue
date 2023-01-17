@@ -24,6 +24,11 @@ export default {
             store.loading = false
             })
         }
+    },
+    computed: {
+        numberCards(){
+            return store.cardList.length
+        }
     }
 }
 </script>
@@ -51,7 +56,7 @@ export default {
                 <div class="container-white">
                     <div class="container-card pt-5">
                         <div class="top-bar p-4 mb-3">
-                            <h4 class="text-white">Found {{ store.cardList.length }} cards</h4>
+                            <h4 class="text-white">Found {{ numberCards }} cards</h4>
                         </div>
                         <div class="card-list">
 
